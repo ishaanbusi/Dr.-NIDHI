@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { OtpInput } from './OtpInput';
+import React, { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { OtpInput } from "./OtpInput";
 
 export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState("");
   const [showOtp, setShowOtp] = useState(false);
-  const [otp, setOtp] = useState(Array(6).fill(''));
-  const [error, setError] = useState('');
-  const [treatmentType, setTreatmentType] = useState('');
+  const [otp, setOtp] = useState(Array(6).fill(""));
+  const [error, setError] = useState("");
+  const [treatmentType, setTreatmentType] = useState("");
   const [diagnosisCount, setDiagnosisCount] = useState(1587); // Example count
 
   const handleSubmitPhone = (e: React.FormEvent) => {
     e.preventDefault();
     if (!treatmentType) {
-      setError('Please select a treatment type');
+      setError("Please select a treatment type");
       return;
     }
     setShowOtp(true);
-    setError('');
+    setError("");
   };
 
   const handleSubmitOtp = (e: React.FormEvent) => {
     e.preventDefault();
-    if (otp.join('') === '123456') {
+    if (otp.join("") === "123456") {
       onLogin();
     } else {
-      setError('Invalid OTP. For demo, use 123456');
+      setError("Invalid OTP. For demo, use 123456");
     }
   };
 
@@ -34,7 +34,8 @@ export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
       {/* Diagnosis Counter */}
       <div className="bg-[#FDF5F5] text-[#2D3436] text-center py-2 shadow-md">
         <p className="text-lg font-semibold">
-          Total Patient Diagnoses: <span className="text-deeper">{diagnosisCount}</span>
+          Total Patient Diagnoses:{" "}
+          <span className="text-deeper">{diagnosisCount}</span>
         </p>
       </div>
 
@@ -46,7 +47,9 @@ export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
               alt="Logo"
               className="w-240 h-20 mx-auto mb-4"
             />
-            <h1 className="text-2xl font-bold text-text">Welcome To Dr. NIDHI</h1>
+            <h1 className="text-2xl font-bold text-text">
+              Welcome To Dr. NIDHI
+            </h1>
             <p className="text-accent mt-2">Sign in to continue</p>
           </div>
 
@@ -55,7 +58,10 @@ export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
           {!showOtp ? (
             <form onSubmit={handleSubmitPhone} className="space-y-6">
               <div>
-                <label htmlFor="treatment" className="block text-sm font-medium text-text">
+                <label
+                  htmlFor="treatment"
+                  className="block text-sm font-medium text-text"
+                >
                   Select Expertise
                 </label>
                 <select
@@ -75,7 +81,10 @@ export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-text">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-text"
+                >
                   Phone Number
                 </label>
                 <div className="mt-1">
@@ -105,7 +114,9 @@ export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   Enter verification code sent to {phone}
                 </label>
                 <OtpInput length={6} value={otp} onChange={setOtp} />
-                <p className="text-sm text-accent text-center mt-2">Demo OTP: 123456</p>
+                <p className="text-sm text-accent text-center mt-2">
+                  Demo OTP: 123456
+                </p>
               </div>
               <button
                 type="submit"
@@ -122,7 +133,8 @@ export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
       {/* Footer */}
       <div className="bg-background border-t border-accent text-center py-4 mt-4">
         <p className="text-sm text-text">
-          Product by <strong>Gloport Photonix Innovations Pvt Ltd</strong> | © 2025 All Rights Reserved
+          Product by <strong>Gloport Photonix Innovations Pvt Ltd</strong> | ©
+          2025 All Rights Reserved
         </p>
       </div>
     </div>
