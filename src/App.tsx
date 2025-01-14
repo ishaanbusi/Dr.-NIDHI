@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { SplashScreen } from './components/SplashScreen';
-import { LoginPage } from './components/LoginPage';
-import { Dashboard } from './components/Dashboard';
-import { PatientEntry } from './components/PatientEntry';
-import { PatientList } from './components/PatientList';
-import StatusPage from './components/StatusPage';
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { SplashScreen } from "./components/SplashScreen";
+import { LoginPage } from "./components/LoginPage";
+import { Dashboard } from "./components/Dashboard";
+import { PatientEntry } from "./components/PatientEntry";
+import { PatientList } from "./components/PatientList";
+import StatusPage from "./components/StatusPage";
+import PatientHistory from "./components/PatientHistory";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -39,6 +40,10 @@ function App() {
         <Route
           path="/status"
           element={isAuthenticated ? <StatusPage /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/PatientHistory"
+          element={isAuthenticated ? <PatientHistory /> : <Navigate to="/" />}
         />
       </Routes>
     </BrowserRouter>
