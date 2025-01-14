@@ -8,7 +8,7 @@ export const LoginPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
   const [otp, setOtp] = useState(Array(6).fill(""));
   const [error, setError] = useState("");
   const [treatmentType, setTreatmentType] = useState("");
-  const [diagnosisCount, setDiagnosisCount] = useState(3587);
+  const [diagnosisCount] = useState(3587);
 
   const handleSubmitPhone = (e: React.FormEvent) => {
     e.preventDefault();
